@@ -1,0 +1,96 @@
+\hypertarget{debug_8h}{
+\section{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Common/include/debug.h File Reference}
+\label{debug_8h}\index{/home/juha/ns_1_1_0/subversion/nanostack/Common/include/debug.h@{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Common/include/debug.h}}
+}
+debug API headers. 
+
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include $<$progmem.h$>$}\par
+{\tt \#include \char`\"{}address.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{debug_8h_0a973f7277ad26fd2e6038a8747c16d4}{debug}(y)~debug\_\-constant(PROGMEM\_\-STRING(y));
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+uint8\_\-t $\ast$ \hyperlink{debug_8h_1857769b85eb8b6e5b8f67e25b182873}{debug\_\-integer} (uint8\_\-t width, uint8\_\-t base, int n)
+\item 
+int8\_\-t \hyperlink{debug_8h_658bb373a72c43fa6a070e2380e24059}{debug\_\-send} (uint8\_\-t $\ast$buffer, uint8\_\-t length)
+\item 
+void \hyperlink{debug_8h_120d0482b22464d16d54c308c8ea4109}{debug\_\-address} (\hyperlink{structsockaddr__t}{sockaddr\_\-t} $\ast$addr)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+debug API headers. 
+
+Debugging functions: Support for string printouts via UART. 
+
+\subsection{Define Documentation}
+\hypertarget{debug_8h_0a973f7277ad26fd2e6038a8747c16d4}{
+\index{debug.h@{debug.h}!debug@{debug}}
+\index{debug@{debug}!debug.h@{debug.h}}
+\subsubsection[debug]{\setlength{\rightskip}{0pt plus 5cm}\#define debug(y)~debug\_\-constant(PROGMEM\_\-STRING(y));}}
+\label{debug_8h_0a973f7277ad26fd2e6038a8747c16d4}
+
+
+Print a constant string to the debug port.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em y}]pointer to the string \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{debug_8h_120d0482b22464d16d54c308c8ea4109}{
+\index{debug.h@{debug.h}!debug_address@{debug\_\-address}}
+\index{debug_address@{debug\_\-address}!debug.h@{debug.h}}
+\subsubsection[debug\_\-address]{\setlength{\rightskip}{0pt plus 5cm}void debug\_\-address (\hyperlink{structsockaddr__t}{sockaddr\_\-t} $\ast$ {\em addr})}}
+\label{debug_8h_120d0482b22464d16d54c308c8ea4109}
+
+
+Print an address
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em addr}]pointer to sockaddr struct \end{description}
+\end{Desc}
+\hypertarget{debug_8h_1857769b85eb8b6e5b8f67e25b182873}{
+\index{debug.h@{debug.h}!debug_integer@{debug\_\-integer}}
+\index{debug_integer@{debug\_\-integer}!debug.h@{debug.h}}
+\subsubsection[debug\_\-integer]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t$\ast$ debug\_\-integer (uint8\_\-t {\em width}, uint8\_\-t {\em base}, int {\em n})}}
+\label{debug_8h_1857769b85eb8b6e5b8f67e25b182873}
+
+
+Print a number to the debug port.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em width}]string maximum length \item[{\em base}]base number (16 for hex, 10 for decimal etc.) \item[{\em n}]number value\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]pointer to the formatted string \end{Desc}
+\hypertarget{debug_8h_658bb373a72c43fa6a070e2380e24059}{
+\index{debug.h@{debug.h}!debug_send@{debug\_\-send}}
+\index{debug_send@{debug\_\-send}!debug.h@{debug.h}}
+\subsubsection[debug\_\-send]{\setlength{\rightskip}{0pt plus 5cm}int8\_\-t debug\_\-send (uint8\_\-t $\ast$ {\em buffer}, uint8\_\-t {\em length})}}
+\label{debug_8h_658bb373a72c43fa6a070e2380e24059}
+
+
+Send multiple bytes
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em buffer}]pointer to data \item[{\em length}]buffer length\end{description}
+\end{Desc}
+\begin{Desc}
+\item[\hyperlink{todo__todo000004}{Todo}]wait time for task\end{Desc}
+\begin{Desc}
+\item[Returns:]number of bytes sent \end{Desc}

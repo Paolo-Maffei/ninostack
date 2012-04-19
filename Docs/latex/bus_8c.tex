@@ -1,0 +1,117 @@
+\hypertarget{bus_8c}{
+\section{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/bus.c File Reference}
+\label{bus_8c}\index{/home/juha/ns_1_1_0/subversion/nanostack/Platform/nano/bus.c@{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/bus.c}}
+}
+nano bus controls. 
+
+{\tt \#include \char`\"{}Free\-RTOS.h\char`\"{}}\par
+{\tt \#include \char`\"{}queue.h\char`\"{}}\par
+{\tt \#include \char`\"{}task.h\char`\"{}}\par
+{\tt \#include \char`\"{}semphr.h\char`\"{}}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include \char`\"{}debug.h\char`\"{}}\par
+{\tt \#include \char`\"{}bus.h\char`\"{}}\par
+{\tt \#include \char`\"{}gpio.h\char`\"{}}\par
+{\tt \#include \char`\"{}progmem.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{bus_8c_1c9e133b825bded7bf8039c43b49d2c7}{dma\_\-init} (void)
+\item 
+port\-CHAR \hyperlink{bus_8c_06e167cc6a6f2f005c6839f275603fb2}{bus\_\-init} (void)
+\item 
+void \hyperlink{bus_8c_18e15eb54206a161294eaf1b44e6d612}{flash\_\-read} (uint8\_\-t $\ast$buffer, uint32\_\-t address, uint8\_\-t size)
+\item 
+void \hyperlink{bus_8c_1da15097728bffaea9b849313a08347c}{pause\_\-us} (uint16\_\-t time)
+\item 
+void \hyperlink{bus_8c_54441b2d04c685b98ce47a85a6bba184}{pause} (uint16\_\-t time)
+\item 
+uint16\_\-t \hyperlink{bus_8c_a8aa147edce7a2bab002cc66cdd343b1}{random\_\-generate} (uint16\_\-t range)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+nano bus controls. 
+
+Nano: basic mode control and support functions. General support functions and hardware initialization. 
+
+\subsection{Function Documentation}
+\hypertarget{bus_8c_06e167cc6a6f2f005c6839f275603fb2}{
+\index{bus.c@{bus.c}!bus_init@{bus\_\-init}}
+\index{bus_init@{bus\_\-init}!bus.c@{bus.c}}
+\subsubsection[bus\_\-init]{\setlength{\rightskip}{0pt plus 5cm}port\-CHAR bus\_\-init (void)}}
+\label{bus_8c_06e167cc6a6f2f005c6839f275603fb2}
+
+
+Initialize bus and MCU clock. First function to call.
+
+\begin{Desc}
+\item[Returns:]pd\-TRUE 
+
+pd\-FALSE semaphore creation failed \end{Desc}
+\hypertarget{bus_8c_1c9e133b825bded7bf8039c43b49d2c7}{
+\index{bus.c@{bus.c}!dma_init@{dma\_\-init}}
+\index{dma_init@{dma\_\-init}!bus.c@{bus.c}}
+\subsubsection[dma\_\-init]{\setlength{\rightskip}{0pt plus 5cm}void dma\_\-init (void)}}
+\label{bus_8c_1c9e133b825bded7bf8039c43b49d2c7}
+
+
+Init DMA structures. \hypertarget{bus_8c_18e15eb54206a161294eaf1b44e6d612}{
+\index{bus.c@{bus.c}!flash_read@{flash\_\-read}}
+\index{flash_read@{flash\_\-read}!bus.c@{bus.c}}
+\subsubsection[flash\_\-read]{\setlength{\rightskip}{0pt plus 5cm}void flash\_\-read (uint8\_\-t $\ast$ {\em buffer}, uint32\_\-t {\em address}, uint8\_\-t {\em size})}}
+\label{bus_8c_18e15eb54206a161294eaf1b44e6d612}
+
+
+Read a block of code memory. The code must be placed in the lowest bank of flash.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em address}]address to read from flash \item[{\em buffer}]buffer to store data \item[{\em size}]number of bytes to read \end{description}
+\end{Desc}
+\hypertarget{bus_8c_54441b2d04c685b98ce47a85a6bba184}{
+\index{bus.c@{bus.c}!pause@{pause}}
+\index{pause@{pause}!bus.c@{bus.c}}
+\subsubsection[pause]{\setlength{\rightskip}{0pt plus 5cm}void pause (uint16\_\-t {\em time})}}
+\label{bus_8c_54441b2d04c685b98ce47a85a6bba184}
+
+
+Approximate CPU loop pause.
+
+Approximates multiples of 1 ms delay.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em time}]time in ms \end{description}
+\end{Desc}
+\hypertarget{bus_8c_1da15097728bffaea9b849313a08347c}{
+\index{bus.c@{bus.c}!pause_us@{pause\_\-us}}
+\index{pause_us@{pause\_\-us}!bus.c@{bus.c}}
+\subsubsection[pause\_\-us]{\setlength{\rightskip}{0pt plus 5cm}void pause\_\-us (uint16\_\-t {\em time})}}
+\label{bus_8c_1da15097728bffaea9b849313a08347c}
+
+
+Approximate CPU loop pause.
+
+Approximates multiples of 1 us delay.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em time}]time in us \end{description}
+\end{Desc}
+\hypertarget{bus_8c_a8aa147edce7a2bab002cc66cdd343b1}{
+\index{bus.c@{bus.c}!random_generate@{random\_\-generate}}
+\index{random_generate@{random\_\-generate}!bus.c@{bus.c}}
+\subsubsection[random\_\-generate]{\setlength{\rightskip}{0pt plus 5cm}uint16\_\-t random\_\-generate (uint16\_\-t {\em range})}}
+\label{bus_8c_a8aa147edce7a2bab002cc66cdd343b1}
+
+
+Random value function.
+
+Function generates a value between 0 and range.
+
+\begin{Desc}
+\item[Returns:]rand random value. \end{Desc}

@@ -1,0 +1,60 @@
+\hypertarget{aes_8c}{
+\section{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/aes.c File Reference}
+\label{aes_8c}\index{/home/juha/ns_1_1_0/subversion/nanostack/Platform/nano/aes.c@{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/aes.c}}
+}
+nano AES coprocessor features. 
+
+{\tt \#include \char`\"{}Free\-RTOS.h\char`\"{}}\par
+{\tt \#include \char`\"{}queue.h\char`\"{}}\par
+{\tt \#include \char`\"{}task.h\char`\"{}}\par
+{\tt \#include \char`\"{}semphr.h\char`\"{}}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include \char`\"{}debug.h\char`\"{}}\par
+{\tt \#include \char`\"{}bus.h\char`\"{}}\par
+{\tt \#include \char`\"{}gpio.h\char`\"{}}\par
+{\tt \#include \char`\"{}progmem.h\char`\"{}}\par
+{\tt \#include \char`\"{}buffer.h\char`\"{}}\par
+{\tt \#include \char`\"{}aes.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{aes_8c_7b58d66401f9363c7b9ad854cdb03784}{aes\_\-init} (uint8\_\-t $\ast$key, uint8\_\-t $\ast$iv)
+\item 
+void \hyperlink{aes_8c_03098e541ce7a7ca4d6a83afe9559d28}{aes\_\-crypt} (uint8\_\-t mode, \hyperlink{structbuffer__t}{buffer\_\-t} $\ast$buffer)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+nano AES coprocessor features. 
+
+Nano: AES coprocessor functionality. Key initialization and buffer en/decryption. Uses CBC mode. 
+
+\subsection{Function Documentation}
+\hypertarget{aes_8c_03098e541ce7a7ca4d6a83afe9559d28}{
+\index{aes.c@{aes.c}!aes_crypt@{aes\_\-crypt}}
+\index{aes_crypt@{aes\_\-crypt}!aes.c@{aes.c}}
+\subsubsection[aes\_\-crypt]{\setlength{\rightskip}{0pt plus 5cm}void aes\_\-crypt (uint8\_\-t {\em mode}, \hyperlink{structbuffer__t}{buffer\_\-t} $\ast$ {\em buffer})}}
+\label{aes_8c_03098e541ce7a7ca4d6a83afe9559d28}
+
+
+Encrypt/decrypt buffer.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mode}]0=encrypt, 1=decrypt \item[{\em buffer}]buffer to en/decrypt \end{description}
+\end{Desc}
+\hypertarget{aes_8c_7b58d66401f9363c7b9ad854cdb03784}{
+\index{aes.c@{aes.c}!aes_init@{aes\_\-init}}
+\index{aes_init@{aes\_\-init}!aes.c@{aes.c}}
+\subsubsection[aes\_\-init]{\setlength{\rightskip}{0pt plus 5cm}void aes\_\-init (uint8\_\-t $\ast$ {\em key}, uint8\_\-t $\ast$ {\em iv})}}
+\label{aes_8c_7b58d66401f9363c7b9ad854cdb03784}
+
+
+Set AES key and initialization vector.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em key}]pointer to key data (16 bytes), 0 to preserve old key \item[{\em iv}]pointer to IV/nonce data (16 bytes), 0 to preserve old IV \end{description}
+\end{Desc}

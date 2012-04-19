@@ -1,0 +1,73 @@
+\hypertarget{adc_8c}{
+\section{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/adc.c File Reference}
+\label{adc_8c}\index{/home/juha/ns_1_1_0/subversion/nanostack/Platform/nano/adc.c@{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/adc.c}}
+}
+nano.4 ADC driver. 
+
+{\tt \#include \char`\"{}Free\-RTOS.h\char`\"{}}\par
+{\tt \#include \char`\"{}queue.h\char`\"{}}\par
+{\tt \#include \char`\"{}task.h\char`\"{}}\par
+{\tt \#include \char`\"{}semphr.h\char`\"{}}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include $<$sys/inttypes.h$>$}\par
+{\tt \#include \char`\"{}stack.h\char`\"{}}\par
+{\tt \#include \char`\"{}debug.h\char`\"{}}\par
+{\tt \#include \char`\"{}dma.h\char`\"{}}\par
+{\tt \#include \char`\"{}adc.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int8\_\-t \hyperlink{adc_8c_48ebe0174ef7a0720e2daacd1612eeee}{adc\_\-convert\_\-single} (adc\_\-input\_\-t source, adc\_\-ref\_\-t ref, adc\_\-res\_\-t resolution)
+\item 
+int8\_\-t \hyperlink{adc_8c_6be0ccdff81f2f1c71a5b3842c7f1b52}{adc\_\-result\_\-single} (int16\_\-t $\ast$result)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+nano.4 ADC driver. 
+
+Nano.4: ADC control functions. 
+
+\subsection{Function Documentation}
+\hypertarget{adc_8c_48ebe0174ef7a0720e2daacd1612eeee}{
+\index{adc.c@{adc.c}!adc_convert_single@{adc\_\-convert\_\-single}}
+\index{adc_convert_single@{adc\_\-convert\_\-single}!adc.c@{adc.c}}
+\subsubsection[adc\_\-convert\_\-single]{\setlength{\rightskip}{0pt plus 5cm}int8\_\-t adc\_\-convert\_\-single (adc\_\-input\_\-t {\em source}, adc\_\-ref\_\-t {\em ref}, adc\_\-res\_\-t {\em resolution})}}
+\label{adc_8c_48ebe0174ef7a0720e2daacd1612eeee}
+
+
+Do a single ADC conversion
+
+The application shall monitor the adc\_\-state variable. Once the variable goes to zero, the ADC value can be read from adc\_\-value.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em source}]channel to get ADC value from \item[{\em ref}]reference source \item[{\em resolution}]ADC resolution for conversion \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]0 OK 
+
+-1 conversion already active \end{Desc}
+\hypertarget{adc_8c_6be0ccdff81f2f1c71a5b3842c7f1b52}{
+\index{adc.c@{adc.c}!adc_result_single@{adc\_\-result\_\-single}}
+\index{adc_result_single@{adc\_\-result\_\-single}!adc.c@{adc.c}}
+\subsubsection[adc\_\-result\_\-single]{\setlength{\rightskip}{0pt plus 5cm}int8\_\-t adc\_\-result\_\-single (int16\_\-t $\ast$ {\em result})}}
+\label{adc_8c_6be0ccdff81f2f1c71a5b3842c7f1b52}
+
+
+Read single ADC conversion result
+
+Once the conversion is ready the function will return 1 and store the result in parameter result
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em result}]pointer to store conversion\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]1 result ready 
+
+0 conversion active 
+
+-1 no conversion active \end{Desc}
