@@ -1,0 +1,85 @@
+\hypertarget{gpio_8c}{
+\section{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/gpio.c File Reference}
+\label{gpio_8c}\index{/home/juha/ns_1_1_0/subversion/nanostack/Platform/nano/gpio.c@{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/gpio.c}}
+}
+nano GPIO functions. 
+
+{\tt \#include \char`\"{}Free\-RTOS.h\char`\"{}}\par
+{\tt \#include \char`\"{}queue.h\char`\"{}}\par
+{\tt \#include \char`\"{}task.h\char`\"{}}\par
+{\tt \#include \char`\"{}semphr.h\char`\"{}}\par
+{\tt \#include $<$sys/inttypes.h$>$}\par
+{\tt \#include \char`\"{}bus.h\char`\"{}}\par
+{\tt \#include \char`\"{}debug.h\char`\"{}}\par
+{\tt \#include \char`\"{}gpio.h\char`\"{}}\par
+{\tt \#include \char`\"{}portable.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+port\-CHAR \hyperlink{gpio_8c_3e3f3b5dfd73853effd5c9d4c66b2821}{gpio0\_\-irq\_\-allocate} (uint8\_\-t pin, void($\ast$isr)(void), uint8\_\-t edge)
+\item 
+port\-CHAR \hyperlink{gpio_8c_7d3a9e127458f10b5e9e9c9a929bb252}{gpio1\_\-irq\_\-allocate} (uint8\_\-t pin, void($\ast$isr)(void), uint8\_\-t edge)
+\item 
+void \hyperlink{gpio_8c_d406ad28dac3420b4736b2d1c001a28b}{v\-Port0\_\-ISR} (void)
+\item 
+void \hyperlink{gpio_8c_4eb997d9a39ebd674764dc6318baf943}{v\-Port1\_\-ISR} (void)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+nano GPIO functions. 
+
+Nano: General purpose functions. LED control, IRQ allocation. 
+
+\subsection{Function Documentation}
+\hypertarget{gpio_8c_3e3f3b5dfd73853effd5c9d4c66b2821}{
+\index{gpio.c@{gpio.c}!gpio0_irq_allocate@{gpio0\_\-irq\_\-allocate}}
+\index{gpio0_irq_allocate@{gpio0\_\-irq\_\-allocate}!gpio.c@{gpio.c}}
+\subsubsection[gpio0\_\-irq\_\-allocate]{\setlength{\rightskip}{0pt plus 5cm}port\-CHAR gpio0\_\-irq\_\-allocate (uint8\_\-t {\em pin}, void($\ast$)(void) {\em isr}, uint8\_\-t {\em edge})}}
+\label{gpio_8c_3e3f3b5dfd73853effd5c9d4c66b2821}
+
+
+Allocate interrupt in port 0.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em pin}]port pin to allocate \item[{\em isr}]interrupt service routine \item[{\em edge}]0 = rising edge, anything else falling edge\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]pd\-TRUE allocation succeeded 
+
+pd\-FALSE interrupt reserved or not available on platform \end{Desc}
+\hypertarget{gpio_8c_7d3a9e127458f10b5e9e9c9a929bb252}{
+\index{gpio.c@{gpio.c}!gpio1_irq_allocate@{gpio1\_\-irq\_\-allocate}}
+\index{gpio1_irq_allocate@{gpio1\_\-irq\_\-allocate}!gpio.c@{gpio.c}}
+\subsubsection[gpio1\_\-irq\_\-allocate]{\setlength{\rightskip}{0pt plus 5cm}port\-CHAR gpio1\_\-irq\_\-allocate (uint8\_\-t {\em pin}, void($\ast$)(void) {\em isr}, uint8\_\-t {\em edge})}}
+\label{gpio_8c_7d3a9e127458f10b5e9e9c9a929bb252}
+
+
+Allocate interrupt in port 1.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em pin}]port pin to allocate \item[{\em isr}]interrupt service routine \item[{\em edge}]0 = rising edge, anything else falling edge\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]pd\-TRUE allocation succeeded 
+
+pd\-FALSE interrupt reserved or not available on platform \end{Desc}
+\hypertarget{gpio_8c_d406ad28dac3420b4736b2d1c001a28b}{
+\index{gpio.c@{gpio.c}!vPort0_ISR@{vPort0\_\-ISR}}
+\index{vPort0_ISR@{vPort0\_\-ISR}!gpio.c@{gpio.c}}
+\subsubsection[vPort0\_\-ISR]{\setlength{\rightskip}{0pt plus 5cm}void v\-Port0\_\-ISR (void)}}
+\label{gpio_8c_d406ad28dac3420b4736b2d1c001a28b}
+
+
+Port 0 interrupt handler. \hypertarget{gpio_8c_4eb997d9a39ebd674764dc6318baf943}{
+\index{gpio.c@{gpio.c}!vPort1_ISR@{vPort1\_\-ISR}}
+\index{vPort1_ISR@{vPort1\_\-ISR}!gpio.c@{gpio.c}}
+\subsubsection[vPort1\_\-ISR]{\setlength{\rightskip}{0pt plus 5cm}void v\-Port1\_\-ISR (void)}}
+\label{gpio_8c_4eb997d9a39ebd674764dc6318baf943}
+
+
+Port 1 interrupt handler. 

@@ -1,0 +1,144 @@
+\hypertarget{dma_8c}{
+\section{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/dma.c File Reference}
+\label{dma_8c}\index{/home/juha/ns_1_1_0/subversion/nanostack/Platform/nano/dma.c@{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/dma.c}}
+}
+DMA controller library. 
+
+{\tt \#include \char`\"{}Free\-RTOS.h\char`\"{}}\par
+{\tt \#include \char`\"{}queue.h\char`\"{}}\par
+{\tt \#include \char`\"{}task.h\char`\"{}}\par
+{\tt \#include \char`\"{}semphr.h\char`\"{}}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include $<$sys/inttypes.h$>$}\par
+{\tt \#include \char`\"{}stack.h\char`\"{}}\par
+{\tt \#include \char`\"{}debug.h\char`\"{}}\par
+{\tt \#include \char`\"{}dma.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{dma_8c_1c9e133b825bded7bf8039c43b49d2c7}{dma\_\-init} (void)
+\item 
+x\-DMAHandle \hyperlink{dma_8c_cf0fa5c60cd3c86dbb70ffe6e19319dd}{dma\_\-config} (uint8\_\-t channel, void $\ast$src, \hyperlink{dma_8h_e39b3fde51d45d53a53429f8a233822a}{dma\_\-inc\_\-t} src\_\-inc, void $\ast$dst, \hyperlink{dma_8h_e39b3fde51d45d53a53429f8a233822a}{dma\_\-inc\_\-t} dst\_\-inc, uint16\_\-t length, \hyperlink{dma_8h_4e415d3875e64e1effd98503eae5eda2}{dma\_\-vlen\_\-t} vlen\_\-mode, \hyperlink{dma_8h_1eee1e02499e4f74e61cc5131bc9863b}{dma\_\-type\_\-t} t\_\-mode, \hyperlink{dma_8h_5c1063a45bd037868ad1aca1b7c5964d}{dma\_\-trigger\_\-t} trigger, dma\_\-func function)
+\item 
+port\-CHAR \hyperlink{dma_8c_5dbd0317a66b7c3f6eb90960051462e9}{dma\_\-arm} (x\-DMAHandle channel)
+\item 
+port\-CHAR \hyperlink{dma_8c_04c075498551edf0e3e634bb9d493306}{dma\_\-abort} (x\-DMAHandle channel)
+\item 
+port\-CHAR \hyperlink{dma_8c_f5ff8dce68fe5825835de5d080f499a5}{dma\_\-trigger} (x\-DMAHandle channel)
+\item 
+port\-CHAR \hyperlink{dma_8c_a95f621ddc1c4852f50d66f04a87e8cf}{dma\_\-state} (x\-DMAHandle channel)
+\item 
+void \hyperlink{dma_8c_897817535d498d92675827040765ee6f}{dma\_\-ISR} (void)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+DMA controller library. 
+
+DMA: mode control and support functions. General support functions and hardware initialization. 
+
+\subsection{Function Documentation}
+\hypertarget{dma_8c_04c075498551edf0e3e634bb9d493306}{
+\index{dma.c@{dma.c}!dma_abort@{dma\_\-abort}}
+\index{dma_abort@{dma\_\-abort}!dma.c@{dma.c}}
+\subsubsection[dma\_\-abort]{\setlength{\rightskip}{0pt plus 5cm}port\-CHAR dma\_\-abort (x\-DMAHandle {\em channel})}}
+\label{dma_8c_04c075498551edf0e3e634bb9d493306}
+
+
+Stop a DMA channel.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em channel}]channel handle;\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]pd\-TRUE 
+
+pd\-FALSE semaphore creation failed \end{Desc}
+\hypertarget{dma_8c_5dbd0317a66b7c3f6eb90960051462e9}{
+\index{dma.c@{dma.c}!dma_arm@{dma\_\-arm}}
+\index{dma_arm@{dma\_\-arm}!dma.c@{dma.c}}
+\subsubsection[dma\_\-arm]{\setlength{\rightskip}{0pt plus 5cm}port\-CHAR dma\_\-arm (x\-DMAHandle {\em channel})}}
+\label{dma_8c_5dbd0317a66b7c3f6eb90960051462e9}
+
+
+Arm a DMA channel.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em channel}]channel handle;\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]pd\-TRUE 
+
+pd\-FALSE semaphore creation failed \end{Desc}
+\hypertarget{dma_8c_cf0fa5c60cd3c86dbb70ffe6e19319dd}{
+\index{dma.c@{dma.c}!dma_config@{dma\_\-config}}
+\index{dma_config@{dma\_\-config}!dma.c@{dma.c}}
+\subsubsection[dma\_\-config]{\setlength{\rightskip}{0pt plus 5cm}x\-DMAHandle dma\_\-config (uint8\_\-t {\em channel}, void $\ast$ {\em src}, \hyperlink{dma_8h_e39b3fde51d45d53a53429f8a233822a}{dma\_\-inc\_\-t} {\em src\_\-inc}, void $\ast$ {\em dst}, \hyperlink{dma_8h_e39b3fde51d45d53a53429f8a233822a}{dma\_\-inc\_\-t} {\em dst\_\-inc}, uint16\_\-t {\em length}, \hyperlink{dma_8h_4e415d3875e64e1effd98503eae5eda2}{dma\_\-vlen\_\-t} {\em vlen\_\-mode}, \hyperlink{dma_8h_1eee1e02499e4f74e61cc5131bc9863b}{dma\_\-type\_\-t} {\em t\_\-mode}, \hyperlink{dma_8h_5c1063a45bd037868ad1aca1b7c5964d}{dma\_\-trigger\_\-t} {\em trigger}, dma\_\-func {\em function})}}
+\label{dma_8c_cf0fa5c60cd3c86dbb70ffe6e19319dd}
+
+
+Configure a DMA channel.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em channel}]channel ID; \item[{\em src}]source address; \item[{\em src\_\-inc}]source increment mode; \item[{\em dst}]dest address; \item[{\em dst\_\-inc}]dest increment mode; \item[{\em length}]maximum length; \item[{\em vlen\_\-mode}]variable length mode; \item[{\em t\_\-mode}]DMA transfer mode; \item[{\em trigger}]DMA trigger; \item[{\em function}]event function;\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Handle to DMA channel 
+
+0 invalid channel \end{Desc}
+\hypertarget{dma_8c_1c9e133b825bded7bf8039c43b49d2c7}{
+\index{dma.c@{dma.c}!dma_init@{dma\_\-init}}
+\index{dma_init@{dma\_\-init}!dma.c@{dma.c}}
+\subsubsection[dma\_\-init]{\setlength{\rightskip}{0pt plus 5cm}void dma\_\-init (void)}}
+\label{dma_8c_1c9e133b825bded7bf8039c43b49d2c7}
+
+
+Init DMA structures. \hypertarget{dma_8c_897817535d498d92675827040765ee6f}{
+\index{dma.c@{dma.c}!dma_ISR@{dma\_\-ISR}}
+\index{dma_ISR@{dma\_\-ISR}!dma.c@{dma.c}}
+\subsubsection[dma\_\-ISR]{\setlength{\rightskip}{0pt plus 5cm}void dma\_\-ISR (void)}}
+\label{dma_8c_897817535d498d92675827040765ee6f}
+
+
+DMA interrupt service routine. \hypertarget{dma_8c_a95f621ddc1c4852f50d66f04a87e8cf}{
+\index{dma.c@{dma.c}!dma_state@{dma\_\-state}}
+\index{dma_state@{dma\_\-state}!dma.c@{dma.c}}
+\subsubsection[dma\_\-state]{\setlength{\rightskip}{0pt plus 5cm}port\-CHAR dma\_\-state (x\-DMAHandle {\em channel})}}
+\label{dma_8c_a95f621ddc1c4852f50d66f04a87e8cf}
+
+
+Get DMA state.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em channel}]channel handle;\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]pd\-TRUE active 
+
+pd\-FALSE not active \end{Desc}
+\hypertarget{dma_8c_f5ff8dce68fe5825835de5d080f499a5}{
+\index{dma.c@{dma.c}!dma_trigger@{dma\_\-trigger}}
+\index{dma_trigger@{dma\_\-trigger}!dma.c@{dma.c}}
+\subsubsection[dma\_\-trigger]{\setlength{\rightskip}{0pt plus 5cm}port\-CHAR dma\_\-trigger (x\-DMAHandle {\em channel})}}
+\label{dma_8c_f5ff8dce68fe5825835de5d080f499a5}
+
+
+Trigger a DMA channel.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em channel}]channel handle;\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]pd\-TRUE 
+
+pd\-FALSE semaphore creation failed \end{Desc}

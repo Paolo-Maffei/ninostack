@@ -1,0 +1,82 @@
+\hypertarget{debug_8c}{
+\section{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/debug.c File Reference}
+\label{debug_8c}\index{/home/juha/ns_1_1_0/subversion/nanostack/Platform/nano/debug.c@{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/debug.c}}
+}
+UART printout library. 
+
+{\tt \#include \char`\"{}Free\-RTOS.h\char`\"{}}\par
+{\tt \#include \char`\"{}queue.h\char`\"{}}\par
+{\tt \#include \char`\"{}task.h\char`\"{}}\par
+{\tt \#include \char`\"{}semphr.h\char`\"{}}\par
+{\tt \#include \char`\"{}debug.h\char`\"{}}\par
+{\tt \#include $<$sys/inttypes.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include \char`\"{}uart.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+uint8\_\-t $\ast$ \hyperlink{debug_8c_1857769b85eb8b6e5b8f67e25b182873}{debug\_\-integer} (uint8\_\-t width, uint8\_\-t base, int n)
+\item 
+int8\_\-t \hyperlink{debug_8c_658bb373a72c43fa6a070e2380e24059}{debug\_\-send} (uint8\_\-t $\ast$buffer, uint8\_\-t length)
+\item 
+void \hyperlink{debug_8c_120d0482b22464d16d54c308c8ea4109}{debug\_\-address} (\hyperlink{structsockaddr__t}{sockaddr\_\-t} $\ast$addr)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+UART printout library. 
+
+Debugging support library: printout functions, number formatting functions.
+
+Note: requires the preprocessor value DEBUG to exist. 
+
+\subsection{Function Documentation}
+\hypertarget{debug_8c_120d0482b22464d16d54c308c8ea4109}{
+\index{debug.c@{debug.c}!debug_address@{debug\_\-address}}
+\index{debug_address@{debug\_\-address}!debug.c@{debug.c}}
+\subsubsection[debug\_\-address]{\setlength{\rightskip}{0pt plus 5cm}void debug\_\-address (\hyperlink{structsockaddr__t}{sockaddr\_\-t} $\ast$ {\em addr})}}
+\label{debug_8c_120d0482b22464d16d54c308c8ea4109}
+
+
+Print an address
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em addr}]pointer to sockaddr struct \end{description}
+\end{Desc}
+\hypertarget{debug_8c_1857769b85eb8b6e5b8f67e25b182873}{
+\index{debug.c@{debug.c}!debug_integer@{debug\_\-integer}}
+\index{debug_integer@{debug\_\-integer}!debug.c@{debug.c}}
+\subsubsection[debug\_\-integer]{\setlength{\rightskip}{0pt plus 5cm}uint8\_\-t$\ast$ debug\_\-integer (uint8\_\-t {\em width}, uint8\_\-t {\em base}, int {\em n})}}
+\label{debug_8c_1857769b85eb8b6e5b8f67e25b182873}
+
+
+Print a number to the debug port.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em width}]string maximum length \item[{\em base}]base number (16 for hex, 10 for decimal etc.) \item[{\em n}]number value\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]pointer to the formatted string \end{Desc}
+\hypertarget{debug_8c_658bb373a72c43fa6a070e2380e24059}{
+\index{debug.c@{debug.c}!debug_send@{debug\_\-send}}
+\index{debug_send@{debug\_\-send}!debug.c@{debug.c}}
+\subsubsection[debug\_\-send]{\setlength{\rightskip}{0pt plus 5cm}int8\_\-t debug\_\-send (uint8\_\-t $\ast$ {\em buffer}, uint8\_\-t {\em length})}}
+\label{debug_8c_658bb373a72c43fa6a070e2380e24059}
+
+
+Send multiple bytes
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em buffer}]pointer to data \item[{\em length}]buffer length\end{description}
+\end{Desc}
+\begin{Desc}
+\item[\hyperlink{todo__todo000004}{Todo}]wait time for task\end{Desc}
+\begin{Desc}
+\item[Returns:]number of bytes sent \end{Desc}

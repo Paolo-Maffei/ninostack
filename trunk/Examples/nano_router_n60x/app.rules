@@ -1,0 +1,68 @@
+#Programming configuration
+#for Linux, this is the device file
+BSL_PORT=/dev/ttyUSB0
+
+#for Windows, this is the com port number - 1, 
+#i.e. 0 for COM1:, 9 for COM10:
+#BSL_PORT=2
+
+#this should be 0 for micro products
+BSL_INVERT=0
+
+# List additional build options here
+
+#Platform configuration
+HAVE_BANKING=1
+
+RF_ACK_SOFT=1
+#RF driver configuration options
+GPIO_MODEL=N600
+HAVE_RF_LED=2
+
+#Debug UART buffer sizes
+#DEBUG_RX_LEN=24
+#DEBUG_TX_LEN=64
+
+#Automatic power saving management
+#HAVE_POWERSAVE=1
+
+#NanoStack configuration
+
+
+#Modules
+HAVE_CUDP=1
+HAVE_CIPV6=1
+HAVE_NRP=1
+HAVE_ICMP=1
+HAVE_MAC_15_4=1
+
+#Services select:
+#Echo service include ICMP & UDP echo
+APP_ICMP_ECHO=0
+APP_UDP_ECHO=0
+AUTO_GW_RESPONSE=1
+#HAVE_AES=1
+
+#Buffers
+STACK_BUFFERS_MAX=10
+STACK_BUFFERS_MIN=10
+
+#6lowpan configuration
+HAVE_ROUTING=1
+NO_FCS=1
+
+#Rf_802_15_4-modules configuration
+MAC_MODE=0
+
+#Debug
+#HAVE_DEBUG=1
+DEBUG_UART=0
+
+#Module specific debug message macros
+#Don't use multiple debug flags, since excessive
+#debug messages may cause instability and timing problems
+#STACK_DEBUG=1
+#CUDP_DEBUG=1
+#CIPV6_DEBUG=1
+#ICMP_DEBUG=1
+#MAC_15_4_DEBUG=1

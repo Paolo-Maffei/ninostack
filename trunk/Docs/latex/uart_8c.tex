@@ -1,0 +1,215 @@
+\hypertarget{uart_8c}{
+\section{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/uart.c File Reference}
+\label{uart_8c}\index{/home/juha/ns_1_1_0/subversion/nanostack/Platform/nano/uart.c@{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/uart.c}}
+}
+nano.4 UART driver. 
+
+{\tt \#include $<$stdlib.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include \char`\"{}Free\-RTOS.h\char`\"{}}\par
+{\tt \#include \char`\"{}task.h\char`\"{}}\par
+{\tt \#include \char`\"{}queue.h\char`\"{}}\par
+{\tt \#include \char`\"{}semphr.h\char`\"{}}\par
+{\tt \#include \char`\"{}uart.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{uart_8c_5bea3465c1f3cabb24437b1b0c285126}{uart0\_\-init} (uint32\_\-t speed)
+\item 
+int16\_\-t \hyperlink{uart_8c_86fdb12597b01e16bf8cd47a56cfc6e4}{uart0\_\-get\_\-blocking} (port\-Tick\-Type time)
+\item 
+int16\_\-t \hyperlink{uart_8c_f6f3b9635c9024fb1bc53e93dbea2e5b}{uart0\_\-get} (void)
+\item 
+int8\_\-t \hyperlink{uart_8c_4eb6d5df3ac45e20e2591233987b7749}{uart0\_\-put} (uint8\_\-t byte)
+\item 
+void \hyperlink{uart_8c_34084a1e6bdbbb2a35ec1b4a4d82d705}{uart0\_\-rx\-ISR} (void)
+\item 
+void \hyperlink{uart_8c_343912ac6697114dee4b9279af349540}{uart0\_\-tx\-ISR} (void)
+\item 
+void \hyperlink{uart_8c_d7c42a30390323e0d3b6c92228f67fee}{uart1\_\-init} (uint32\_\-t speed)
+\item 
+int16\_\-t \hyperlink{uart_8c_ac98aaf2ea1f49ab0528ea09bd4ff416}{uart1\_\-get\_\-blocking} (port\-Tick\-Type time)
+\item 
+int16\_\-t \hyperlink{uart_8c_1591ce4bbaf86852d63a79bfa7ad8b86}{uart1\_\-get} (void)
+\item 
+int8\_\-t \hyperlink{uart_8c_0d51c00585774ffbc2e1654e216ac9fb}{uart1\_\-put} (uint8\_\-t byte)
+\item 
+void \hyperlink{uart_8c_5ba0e680f3c886979c5cf3a0ad345bee}{uart1\_\-rx\-ISR} (void)
+\item 
+void \hyperlink{uart_8c_d40218304b86e253b68089b4c16aa57e}{uart1\_\-tx\-ISR} (void)
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+x\-Queue\-Handle \hyperlink{uart_8c_831aedac07d24ef6bb7ccce39766472b}{uart0\_\-rx} = 0
+\item 
+x\-Queue\-Handle \hyperlink{uart_8c_0dc264c5d2be8aa4cae19c7098f1a270}{uart1\_\-rx} = 0
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+nano.4 UART driver. 
+
+Nano.4: UART control functions. 
+
+\subsection{Function Documentation}
+\hypertarget{uart_8c_f6f3b9635c9024fb1bc53e93dbea2e5b}{
+\index{uart.c@{uart.c}!uart0_get@{uart0\_\-get}}
+\index{uart0_get@{uart0\_\-get}!uart.c@{uart.c}}
+\subsubsection[uart0\_\-get]{\setlength{\rightskip}{0pt plus 5cm}int16\_\-t uart0\_\-get (void)}}
+\label{uart_8c_f6f3b9635c9024fb1bc53e93dbea2e5b}
+
+
+Poll UART 0 RX read.
+
+\begin{Desc}
+\item[Returns:]data or -1 when no data \end{Desc}
+\hypertarget{uart_8c_86fdb12597b01e16bf8cd47a56cfc6e4}{
+\index{uart.c@{uart.c}!uart0_get_blocking@{uart0\_\-get\_\-blocking}}
+\index{uart0_get_blocking@{uart0\_\-get\_\-blocking}!uart.c@{uart.c}}
+\subsubsection[uart0\_\-get\_\-blocking]{\setlength{\rightskip}{0pt plus 5cm}int16\_\-t uart0\_\-get\_\-blocking (port\-Tick\-Type {\em time})}}
+\label{uart_8c_86fdb12597b01e16bf8cd47a56cfc6e4}
+
+
+Poll UART 0 blockking RX read.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em time}]waiting time in the OS tick. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]data or -1 when no data \end{Desc}
+\hypertarget{uart_8c_5bea3465c1f3cabb24437b1b0c285126}{
+\index{uart.c@{uart.c}!uart0_init@{uart0\_\-init}}
+\index{uart0_init@{uart0\_\-init}!uart.c@{uart.c}}
+\subsubsection[uart0\_\-init]{\setlength{\rightskip}{0pt plus 5cm}void uart0\_\-init (uint32\_\-t {\em speed})}}
+\label{uart_8c_5bea3465c1f3cabb24437b1b0c285126}
+
+
+Init UART 0.
+
+Supported UART speed are: 9600/ 38400 / 115200. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em speed}]9600/38400/115200 \end{description}
+\end{Desc}
+\hypertarget{uart_8c_4eb6d5df3ac45e20e2591233987b7749}{
+\index{uart.c@{uart.c}!uart0_put@{uart0\_\-put}}
+\index{uart0_put@{uart0\_\-put}!uart.c@{uart.c}}
+\subsubsection[uart0\_\-put]{\setlength{\rightskip}{0pt plus 5cm}int8\_\-t uart0\_\-put (uint8\_\-t {\em byte})}}
+\label{uart_8c_4eb6d5df3ac45e20e2591233987b7749}
+
+
+Send data to UART 0.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em byte}]data for send \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]data or -1 when no data \end{Desc}
+\hypertarget{uart_8c_34084a1e6bdbbb2a35ec1b4a4d82d705}{
+\index{uart.c@{uart.c}!uart0_rxISR@{uart0\_\-rxISR}}
+\index{uart0_rxISR@{uart0\_\-rxISR}!uart.c@{uart.c}}
+\subsubsection[uart0\_\-rxISR]{\setlength{\rightskip}{0pt plus 5cm}void uart0\_\-rx\-ISR (void)}}
+\label{uart_8c_34084a1e6bdbbb2a35ec1b4a4d82d705}
+
+
+UART RX interrupt service routine for UART 0 \hypertarget{uart_8c_343912ac6697114dee4b9279af349540}{
+\index{uart.c@{uart.c}!uart0_txISR@{uart0\_\-txISR}}
+\index{uart0_txISR@{uart0\_\-txISR}!uart.c@{uart.c}}
+\subsubsection[uart0\_\-txISR]{\setlength{\rightskip}{0pt plus 5cm}void uart0\_\-tx\-ISR (void)}}
+\label{uart_8c_343912ac6697114dee4b9279af349540}
+
+
+UART Tx interrupt service routine. for UART 0 \hypertarget{uart_8c_1591ce4bbaf86852d63a79bfa7ad8b86}{
+\index{uart.c@{uart.c}!uart1_get@{uart1\_\-get}}
+\index{uart1_get@{uart1\_\-get}!uart.c@{uart.c}}
+\subsubsection[uart1\_\-get]{\setlength{\rightskip}{0pt plus 5cm}int16\_\-t uart1\_\-get (void)}}
+\label{uart_8c_1591ce4bbaf86852d63a79bfa7ad8b86}
+
+
+Poll UART 1 RX read data.
+
+\begin{Desc}
+\item[Returns:]data or -1 when no data \end{Desc}
+\hypertarget{uart_8c_ac98aaf2ea1f49ab0528ea09bd4ff416}{
+\index{uart.c@{uart.c}!uart1_get_blocking@{uart1\_\-get\_\-blocking}}
+\index{uart1_get_blocking@{uart1\_\-get\_\-blocking}!uart.c@{uart.c}}
+\subsubsection[uart1\_\-get\_\-blocking]{\setlength{\rightskip}{0pt plus 5cm}int16\_\-t uart1\_\-get\_\-blocking (port\-Tick\-Type {\em time})}}
+\label{uart_8c_ac98aaf2ea1f49ab0528ea09bd4ff416}
+
+
+Poll UART 1 blockking RX read.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em time}]waiting time in the OS tick. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]data or -1 when no data \end{Desc}
+\hypertarget{uart_8c_d7c42a30390323e0d3b6c92228f67fee}{
+\index{uart.c@{uart.c}!uart1_init@{uart1\_\-init}}
+\index{uart1_init@{uart1\_\-init}!uart.c@{uart.c}}
+\subsubsection[uart1\_\-init]{\setlength{\rightskip}{0pt plus 5cm}void uart1\_\-init (uint32\_\-t {\em speed})}}
+\label{uart_8c_d7c42a30390323e0d3b6c92228f67fee}
+
+
+Init UART 1.
+
+Supported UART speed are: 9600/ 38400 / 115200. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em speed}]9600/38400/115200 \end{description}
+\end{Desc}
+\hypertarget{uart_8c_0d51c00585774ffbc2e1654e216ac9fb}{
+\index{uart.c@{uart.c}!uart1_put@{uart1\_\-put}}
+\index{uart1_put@{uart1\_\-put}!uart.c@{uart.c}}
+\subsubsection[uart1\_\-put]{\setlength{\rightskip}{0pt plus 5cm}int8\_\-t uart1\_\-put (uint8\_\-t {\em byte})}}
+\label{uart_8c_0d51c00585774ffbc2e1654e216ac9fb}
+
+
+Send data to UART 1.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em byte}]data for send \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]data or -1 when no data \end{Desc}
+\hypertarget{uart_8c_5ba0e680f3c886979c5cf3a0ad345bee}{
+\index{uart.c@{uart.c}!uart1_rxISR@{uart1\_\-rxISR}}
+\index{uart1_rxISR@{uart1\_\-rxISR}!uart.c@{uart.c}}
+\subsubsection[uart1\_\-rxISR]{\setlength{\rightskip}{0pt plus 5cm}void uart1\_\-rx\-ISR (void)}}
+\label{uart_8c_5ba0e680f3c886979c5cf3a0ad345bee}
+
+
+UART RX interrupt service routine for UART 1 \hypertarget{uart_8c_d40218304b86e253b68089b4c16aa57e}{
+\index{uart.c@{uart.c}!uart1_txISR@{uart1\_\-txISR}}
+\index{uart1_txISR@{uart1\_\-txISR}!uart.c@{uart.c}}
+\subsubsection[uart1\_\-txISR]{\setlength{\rightskip}{0pt plus 5cm}void uart1\_\-tx\-ISR (void)}}
+\label{uart_8c_d40218304b86e253b68089b4c16aa57e}
+
+
+UART Tx interrupt service routine. for UART 1 
+
+\subsection{Variable Documentation}
+\hypertarget{uart_8c_831aedac07d24ef6bb7ccce39766472b}{
+\index{uart.c@{uart.c}!uart0_rx@{uart0\_\-rx}}
+\index{uart0_rx@{uart0\_\-rx}!uart.c@{uart.c}}
+\subsubsection[uart0\_\-rx]{\setlength{\rightskip}{0pt plus 5cm}x\-Queue\-Handle \hyperlink{uart_8c_831aedac07d24ef6bb7ccce39766472b}{uart0\_\-rx} = 0}}
+\label{uart_8c_831aedac07d24ef6bb7ccce39766472b}
+
+
+The queue used to hold received characters. \hypertarget{uart_8c_0dc264c5d2be8aa4cae19c7098f1a270}{
+\index{uart.c@{uart.c}!uart1_rx@{uart1\_\-rx}}
+\index{uart1_rx@{uart1\_\-rx}!uart.c@{uart.c}}
+\subsubsection[uart1\_\-rx]{\setlength{\rightskip}{0pt plus 5cm}x\-Queue\-Handle \hyperlink{uart_8c_0dc264c5d2be8aa4cae19c7098f1a270}{uart1\_\-rx} = 0}}
+\label{uart_8c_0dc264c5d2be8aa4cae19c7098f1a270}
+
+
+The queue used to hold received characters. 

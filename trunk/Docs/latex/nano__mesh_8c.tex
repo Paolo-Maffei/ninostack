@@ -1,0 +1,58 @@
+\hypertarget{nano__mesh_8c}{
+\section{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Common/modules/nano\_\-mesh.c File Reference}
+\label{nano__mesh_8c}\index{/home/juha/ns_1_1_0/subversion/nanostack/Common/modules/nano_mesh.c@{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Common/modules/nano\_\-mesh.c}}
+}
+Nano\-Mesh protocol module. 
+
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include \char`\"{}Free\-RTOS.h\char`\"{}}\par
+{\tt \#include \char`\"{}task.h\char`\"{}}\par
+{\tt \#include \char`\"{}queue.h\char`\"{}}\par
+{\tt \#include \char`\"{}debug.h\char`\"{}}\par
+{\tt \#include \char`\"{}socket.h\char`\"{}}\par
+{\tt \#include \char`\"{}control\_\-message.h\char`\"{}}\par
+{\tt \#include \char`\"{}neighbor\_\-routing\_\-table.h\char`\"{}}\par
+{\tt \#include \char`\"{}cipv6.h\char`\"{}}\par
+{\tt \#include \char`\"{}gpio.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+port\-CHAR \hyperlink{nano__mesh_8c_5b59c454313e27a233316c609d17703b}{nanomesh\_\-init} (\hyperlink{structbuffer__t}{buffer\_\-t} $\ast$buf)
+\item 
+port\-CHAR \hyperlink{nano__mesh_8c_4454888a4e2fb57446d20a356d10609c}{nanomesh\_\-handle} (\hyperlink{structbuffer__t}{buffer\_\-t} $\ast$buf)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Nano\-Mesh protocol module. 
+
+Module includes Nano\-Mesh forwarding technic... . 
+
+\subsection{Function Documentation}
+\hypertarget{nano__mesh_8c_4454888a4e2fb57446d20a356d10609c}{
+\index{nano_mesh.c@{nano\_\-mesh.c}!nanomesh_handle@{nanomesh\_\-handle}}
+\index{nanomesh_handle@{nanomesh\_\-handle}!nano_mesh.c@{nano\_\-mesh.c}}
+\subsubsection[nanomesh\_\-handle]{\setlength{\rightskip}{0pt plus 5cm}port\-CHAR nanomesh\_\-handle (\hyperlink{structbuffer__t}{buffer\_\-t} $\ast$ {\em buf})}}
+\label{nano__mesh_8c_4454888a4e2fb57446d20a356d10609c}
+
+
+Main Nano\-Mesh buffer handler.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em buf}]pointer to buffer \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]pd\-TRUE OK \end{Desc}
+\hypertarget{nano__mesh_8c_5b59c454313e27a233316c609d17703b}{
+\index{nano_mesh.c@{nano\_\-mesh.c}!nanomesh_init@{nanomesh\_\-init}}
+\index{nanomesh_init@{nanomesh\_\-init}!nano_mesh.c@{nano\_\-mesh.c}}
+\subsubsection[nanomesh\_\-init]{\setlength{\rightskip}{0pt plus 5cm}port\-CHAR nanomesh\_\-init (\hyperlink{structbuffer__t}{buffer\_\-t} $\ast$ {\em buf})}}
+\label{nano__mesh_8c_5b59c454313e27a233316c609d17703b}
+
+
+Initialize Nano\-Mesh module.
+
+\begin{Desc}
+\item[Returns:]pd\-TRUE OK \end{Desc}

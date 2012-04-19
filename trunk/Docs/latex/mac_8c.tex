@@ -1,0 +1,58 @@
+\hypertarget{mac_8c}{
+\section{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/mac.c File Reference}
+\label{mac_8c}\index{/home/juha/ns_1_1_0/subversion/nanostack/Platform/nano/mac.c@{/home/juha/ns\_\-1\_\-1\_\-0/subversion/nanostack/Platform/nano/mac.c}}
+}
+MAC API. 
+
+{\tt \#include \char`\"{}Free\-RTOS.h\char`\"{}}\par
+{\tt \#include \char`\"{}queue.h\char`\"{}}\par
+{\tt \#include \char`\"{}task.h\char`\"{}}\par
+{\tt \#include \char`\"{}semphr.h\char`\"{}}\par
+{\tt \#include $<$sys/inttypes.h$>$}\par
+{\tt \#include $<$string.h$>$}\par
+{\tt \#include \char`\"{}stack.h\char`\"{}}\par
+{\tt \#include \char`\"{}mac.h\char`\"{}}\par
+{\tt \#include \char`\"{}rf\_\-802\_\-15\_\-4.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+port\-CHAR \hyperlink{mac_8c_39afdb8d293495245cfe87d17d28be5a}{mac\_\-get} (\hyperlink{structsockaddr__t}{sockaddr\_\-t} $\ast$address)
+\item 
+void \hyperlink{mac_8c_a12dd6bf4d0cb42d0d9c7569ef98d6a4}{mac\_\-set} (\hyperlink{structsockaddr__t}{sockaddr\_\-t} $\ast$address)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+MAC API. 
+
+Support library: getting HW MAC from device. 
+
+\subsection{Function Documentation}
+\hypertarget{mac_8c_39afdb8d293495245cfe87d17d28be5a}{
+\index{mac.c@{mac.c}!mac_get@{mac\_\-get}}
+\index{mac_get@{mac\_\-get}!mac.c@{mac.c}}
+\subsubsection[mac\_\-get]{\setlength{\rightskip}{0pt plus 5cm}port\-CHAR mac\_\-get (\hyperlink{structsockaddr__t}{sockaddr\_\-t} $\ast$ {\em address})}}
+\label{mac_8c_39afdb8d293495245cfe87d17d28be5a}
+
+
+Get the unique device ID. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em address}]Device ID information in the address field on pd\-TRUE \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]pd\-TRUE or pd\-FALSE (no storage/not found/corrupted) \end{Desc}
+\hypertarget{mac_8c_a12dd6bf4d0cb42d0d9c7569ef98d6a4}{
+\index{mac.c@{mac.c}!mac_set@{mac\_\-set}}
+\index{mac_set@{mac\_\-set}!mac.c@{mac.c}}
+\subsubsection[mac\_\-set]{\setlength{\rightskip}{0pt plus 5cm}void mac\_\-set (\hyperlink{structsockaddr__t}{sockaddr\_\-t} $\ast$ {\em address})}}
+\label{mac_8c_a12dd6bf4d0cb42d0d9c7569ef98d6a4}
+
+
+Set the unique device ID. \begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em address}]Device ID information in the address field \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]pd\-TRUE or pd\-FALSE (no storage/not editable) \end{Desc}
